@@ -1,0 +1,9 @@
+  language: python
+  python:
+    - "3.6"
+  script:
+    - pip install -e .[dev]
+    - flake8 atc_chain --max-line-length=100
+    - flake8 tests --max-line-length=100
+    - mypy --follow-imports=silent --ignore-missing-imports --no-strict-optional --check-untyped-defs --disallow-incomplete-defs -p atc_chain.state
+    - pytest tests
